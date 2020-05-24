@@ -17,12 +17,12 @@ export default function Timer({ route }) {
 
   const navigation = useNavigation();
 
-  const progress = useMemo(() => (100 * secondsEllapsed) / 60, [
-    secondsEllapsed,
-  ]);
+  const progress = useMemo(
+    () => (100 * secondsEllapsed) / (sessionTimeValue * 60),
+    [secondsEllapsed]
+  );
   const formatedTimeEllapsed = useMemo(() => {
     if (secondsEllapsed > 60) {
-      console.log(Math.floor(secondsEllapsed / 60));
       return Math.floor(secondsEllapsed / 60);
     }
 
